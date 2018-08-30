@@ -49,7 +49,7 @@
     <th>Count</th>
   </tr>
 
-  <% delayed_jobs(nil).group(:queue).size.each do |queue, count| %>
+  <% delayed_jobs.all(nil).map(&:queue).each do |queue| %>
     <tr>
       <td class="status">
         <a href="<%= queue_path(queue) %>">
@@ -57,7 +57,7 @@
         </a>
       </td>
       <td>
-      <%= count %>
+      <%= delayed_jobs.all.where(queue: queue).count %>
       </td>
     </tr>
   <% end %>
