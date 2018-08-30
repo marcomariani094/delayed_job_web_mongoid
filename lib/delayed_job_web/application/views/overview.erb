@@ -52,7 +52,7 @@
   <% Delayed::Job.all(nil).map(&:queue).uniq.compact.each do |queue| %>
     <tr>
       <td class="status">
-        <a href="<%= queue_path(queue) %>">
+        <a href="<%= queue %>">
           <%= queue %>
         </a>
       </td>
