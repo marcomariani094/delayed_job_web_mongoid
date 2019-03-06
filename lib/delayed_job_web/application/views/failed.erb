@@ -1,4 +1,4 @@
-<h1>Failed Jobs</h1>
+<h1>Failed Jobs <%= request.GET['queues'] %> </h1>
 <% if @jobs.any? %>
   <form action="<%= u('failed/clear') %>" method="POST">
     <%= csrf_token_tag %>

@@ -20,6 +20,7 @@
             <input name="queues" type="text" value="<%=h @queues.join(", ") %>" style="width: 300px;" placeholder="Filter jobs by queue name (e.g. queue1, queue2)" />
             <input type="submit" value="Filter" />
           </form>
+          <a href="<%= path_prefix %>" style="background: darkred; font-weight: bold; color: #fff;">Clean Filters</a>
         </li>
       </ul>
     </div>
@@ -29,7 +30,7 @@
     <div id="footer">
       <p>
         Powered by
-        <a href="https://github.com/collectiveidea/delayed_job">delayed_job</a>
+        <a href="https://github.com/marcomariani094/delayed_job_web_mongoid">delayed_job</a>
         &amp;
         <a href="https://github.com/ejschmitt/delayed_job_web">delayed_job_web</a>
       </p>

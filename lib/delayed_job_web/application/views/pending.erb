@@ -1,4 +1,4 @@
-<h1>Pending</h1>
+<h1>Pending <%= request.GET['queues'] %> </h1>
 <% if @jobs.any? %>
   <form action="<%= u('requeue/all') %>" method="POST">
     <%= csrf_token_tag %>

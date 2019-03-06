@@ -37,7 +37,7 @@ class DelayedJobWeb < Sinatra::Base
   end
 
   def per_page
-    20
+    params[:per_page].to_i || 20
   end
   
   def url_path(*path_parts)
@@ -47,6 +47,20 @@ class DelayedJobWeb < Sinatra::Base
   end
 
   alias_method :u, :url_path
+
+  def queue_path(queue)
+    with_queue(queue) do
+      url_path(:overview)
+    end
+  end
+
+  def with_queue(queue, &block)
+    aux_queues = @queues
+    @queues = Array(queue)
+    result  = block.call
+    @queues = aux_queues
+    result
+  end
 
   def h(text)
     Rack::Utils.escape_html(text)
