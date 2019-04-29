@@ -49,7 +49,7 @@
     <th>Count</th>
   </tr>
 
-  <% delayed_job.all(nil).map(&:queue).uniq.compact.each do |queue| %>
+  <% delayed_job.distinct('queue').each do |queue| %>
     <tr>
       <td class="status">
         <a href="<%= queue_path(queue) %>">
